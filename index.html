@@ -10,38 +10,40 @@
   </head>
   <body>
     <section class="ultimate-password-class">
-      <div class="generate-lottery-numbers">
-        <img src="/5xruby.svg" alt="五倍紅寶石LOGO" class="logo" />
-        <h1 class="lottery-hint">隨機產生一個亂數</h1>
-        <p class="lottery-number"></p>
-        <button class="lottery-button">重設</button>
+      <div class="lottery-numbers-card">
+        <img src="/images/5xruby.svg" alt="五倍紅寶石LOGO" class="logo" />
+        <div class="generate-lottery-numbers">
+          <h1 class="lottery-hint">隨機產生一個亂數</h1>
+          <p class="lottery-number">0</p>
+          <button class="lottery-button">重設</button>
+        </div>
       </div>
       <div class="ultimate-password-game">
-        <div class="outline">
-          <div class="input-coda">
-            <p class="range">
-              目前範圍:
-              <strong class="current-min-number"></strong>
-              ~
-              <strong class="current-max-number"></strong>
-            </p>
-            <div class="answer">
-              <label for="guess-number" class="number-label"
-                >輸入你的答案</label
-              >
-              <input
-                type="text"
-                id="guess-number"
-                name="guess-number"
-                placeholder="請輸入數字"
-                class="guess-number"
-                autocomplete="off"
-              />
-              <button class="submit-button">送出</button>
-              <p class="hint"></p>
-            </div>
-          </div>
+        <div class="ultimate-password-logo">
+          <image
+            src="/images/lock.svg"
+            alt="lock icon"
+            class="lock-icon"
+          ></image>
+          <h2 class="title">終極密碼</h2>
         </div>
+        <p class="range">目前範圍:</p>
+        <div class="current-range">
+          <strong class="current-min-number">0</strong>
+          <span>~</span>
+          <strong class="current-max-number">100</strong>
+        </div>
+        <input
+          type="text"
+          id="guess-number"
+          name="guess-number"
+          placeholder="請輸入數字"
+          class="guess-number"
+          autocomplete="off"
+        />
+        <button class="submit-button">送出</button>
+        <p class="hint"></p>
+        <button class="restart-button">重新遊戲</button>
       </div>
     </section>
   </body>

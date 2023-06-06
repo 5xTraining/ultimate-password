@@ -5,10 +5,17 @@ const currentMinNumber = document.querySelector(".current-min-number");
 const currentMaxNumber = document.querySelector(".current-max-number");
 const lotteryNumber = document.querySelector(".lottery-number");
 const lotteryButton = document.querySelector(".lottery-button");
+const restartButton = document.querySelector(".restart-button");
 let randomInt = getRandomInt(0, 100);
-currentMinNumber.textContent = "0";
-currentMaxNumber.textContent = "100";
-lotteryNumber.textContent = 0;
+
+restartButton.addEventListener("click", function () {
+  // 重新設定遊戲狀態，例如重新生成隨機數、清空輸入框、重置範圍等等
+  randomInt = getRandomInt(0, 100);
+  guessNumber.value = "";
+  hint.textContent = "";
+  currentMinNumber.textContent = "0";
+  currentMaxNumber.textContent = "100";
+});
 
 lotteryButton.addEventListener("click", function () {
   lotteryNumber.textContent = getRandomInt(0, 100);
