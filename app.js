@@ -10,10 +10,10 @@ let randomInt = getRandomInt(0, 100);
 
 // 輸入最大數跟最小數，計算隨機數
 function getRandomInt(min, max) {
-  min = Math.ceil(min); // 回傳大於或等於 min 的最小整
-  max = Math.floor(max); // 回傳小於或等於 max 的最大整數   －
+  const minInt = Math.ceil(min); // 回傳大於或等於 min 的最小整
+  const maxInt = Math.floor(max); // 回傳小於或等於 max 的最大整數   －
 
-  return Math.floor(Math.random() * (max - min) + min);
+  return Math.floor(Math.random() * (maxInt - minInt) + minInt);
   // 先用 random 算出兩數的隨機數，再用 floor 將隨機數去小數點
 }
 
