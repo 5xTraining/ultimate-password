@@ -6,33 +6,31 @@ const guessNumber = document.querySelector(".guess-number");
 const submitButton = document.querySelector(".submit-button");
 const hint = document.querySelector(".hint");
 const restartButton = document.querySelector(".restart-button");
-let randomInt = getRandomInt(0, 100);
+let randomNumber = getRandomNumber(0, 100);
 
-// 輸入最大數跟最小數，計算隨機數
-function getRandomInt(min, max) {
-  const minInt = Math.ceil(min); // 回傳大於或等於 min 的最小整
-  const maxInt = Math.floor(max); // 回傳小於或等於 max 的最大整數   －
+function getRandomNumber(min, max) {
+  const minNumber = Math.floor(min);
+  const maxNumber = Math.floor(max);
 
-  return Math.floor(Math.random() * (maxInt - minInt) + minInt);
-  // 先用 random 算出兩數的隨機數，再用 floor 將隨機數去小數點
+  return Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
 }
 
 lotteryButton.addEventListener("click", function () {
-  lotteryNumber.textContent = getRandomInt(0, 100);
+  lotteryNumber.textContent = getRandomNumber(0, 100);
 });
 
 function handleSubmit() {
-  if (Number(guessNumber.value) == randomInt) {
-    hint.textContent = `恭喜猜中！答案為：${guessNumber.value}`;
+  if (Number(guessNumber.value) === randomNumber) {
+    hint.textContent = "恭喜猜中！";
   } else if (
-    Number(guessNumber.value) > randomInt &&
-    Number(guessNumber.value) < currentMaxNumber.textContent
+    Number(guessNumber.value) > randomNumber &&
+    Number(guessNumber.value) < Number(currentMaxNumber.textContent)
   ) {
     hint.textContent = "";
     currentMaxNumber.textContent = guessNumber.value;
   } else if (
-    Number(guessNumber.value) < randomInt &&
-    Number(guessNumber.value) > currentMinNumber.textContent
+    Number(guessNumber.value) < randomNumber &&
+    Number(guessNumber.value) > Number(currentMinNumber.textContent)
   ) {
     hint.textContent = "";
     currentMinNumber.textContent = guessNumber.value;
@@ -42,20 +40,16 @@ function handleSubmit() {
   guessNumber.value = "";
 }
 
-// 綁定 click 事件
 submitButton.addEventListener("click", handleSubmit);
 
-// 綁定 keydown 事件
 guessNumber.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
-    // 如果按下的是 Enter 鍵
     handleSubmit();
   }
 });
 
 restartButton.addEventListener("click", function () {
-  // 重新設定遊戲狀態，例如重新生成隨機數、清空輸入框、重置範圍等等
-  randomInt = getRandomInt(0, 100);
+  randomNumber = getRandomNumber(0, 100);
   guessNumber.value = "";
   hint.textContent = "";
   currentMinNumber.textContent = "0";
